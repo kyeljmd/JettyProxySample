@@ -3,21 +3,20 @@
         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 	version="3.0">
  
-	<display-name>ApacheCXFProxyClient</display-name>
-		<servlet>
-			<servlet-name>GoogleProxy</servlet-name>
-			<servlet-class>org.eclipse.jetty.servlets.ProxyServlet</servlet-class>
-			<load-on-startup>1</load-on-startup>
-			<init-param>
-			  <param-name>ProxyTo</param-name><param-value>http://www.google.com</param-value>
-			</init-param>
-			<init-param>
-			  <param-name>Prefix</param-name><param-value>/google</param-value>
-			</init-param>
-		  </servlet>
-		   
-		  <servlet-mapping>
-			<servlet-name>GoogleProxy</servlet-name>
-			<url-pattern>/google/*</url-pattern>
-		  </servlet-mapping>  
+	<servlet>
+		<servlet-name>GoogleProxy</servlet-name>
+		<servlet-class>org.eclipse.jetty.servlets.ProxyServlet$Transparent</servlet-class>
+		<load-on-startup>1</load-on-startup>
+		<init-param>
+		  <param-name>ProxyTo</param-name><param-value>http://127.0.0.1:9425/api/sampleemr</param-value>
+		</init-param>
+		<init-param>
+		  <param-name>Prefix</param-name><param-value>/sampleemr</param-value>
+		</init-param>
+	  </servlet>
+	   
+	  <servlet-mapping>
+		<servlet-name>GoogleProxy</servlet-name>
+		<url-pattern>/sampleemr/*</url-pattern>
+	  </servlet-mapping>
 </web-app>
